@@ -293,7 +293,6 @@ function twentyeleven_admin_header_style() {
 	#headimg img {
 		max-width: 1000px;
 		height: auto;
-		/*width: 100%;*/
 	}
 	</style>
 <?php
