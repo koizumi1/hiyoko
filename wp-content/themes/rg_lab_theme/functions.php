@@ -638,4 +638,24 @@ $defaults = array(
 	'admin-preview-callback' => '', 
 );
 add_theme_support( 'custom-header' , $defaults);
+
+function remove_hwstring_from_image_tag( $html, $id, $alt, $title, $align, $size ) {
+    	list( $img_src, $width, $height ) = image_downsize($id, $size);
+    	$hwstring = image_hwstring( $width, $height );
+   	 	$html = str_replace( $hwstring, '', $html );
+    	return $html;
+	}
+
+add_filter( 'get_image_tag', 'remove_hwstring_from_image_tag', 10, 6 );
+?>
+  
+      <!-- * ***** koizumi modified ****** -->     
+<?php
+add_action('admin_menu', 'add_hiyoko_page');
+function add_hiyoko_page() {
+  add_menu_page("hiyoko", "ひよこ外観", 0, "hiyoko_settings", "create_hiyoko_page", "", 3);
+}
+function create_hiyoko_page(){
+  require STYLESHEETPATH."/admin/hiyoko_settings.php";
+}
 ?>
