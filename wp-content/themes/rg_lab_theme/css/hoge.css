@@ -1,0 +1,131 @@
+/*menu_color*/
+.wp-first-item.wp-has-submenu.wp-not-current-submenu.menu-top.menu-top-first.menu-icon-dashboard.menu-top-first {
+	background-color: #FFBCBC;
+}
+
+#toplevel_page_all-in-one-seo-pack-aioseop_class {
+	background-color: #FFDEBC;
+}
+
+#menu-posts {
+	background-color: #FFBCBC;
+}
+
+#toplevel_page_custom-header {
+	background-color: #FFDEBC;
+}
+#menu-settings {
+	background-color: #FFDEBC;
+}
+
+/*All in One SEO_color*/
+#aiosp_home_metabox .inside{
+  background-color: #fff1ef;
+  padding: 18px 0px 10px 0px;
+  }
+
+#aiosp_home_metabox .hndle{
+  background: -webkit-gradient(linear, 0% 100%, 0% 0%, from(#FFC6B4), to(#FFF0EE));
+
+}
+
+#ed_toolbar {
+ background: -webkit-gradient(linear, 0% 100%, 0% 0%, from(#FFC6B4), to(#FFF0EE));
+}
+
+#postimagediv .hndle{
+ background: -webkit-gradient(linear, 0% 100%, 0% 0%, from(#FFC6B4), to(#FFF0EE));
+}
+#categorydiv .hndle{
+ background: -webkit-gradient(linear, 0% 100%, 0% 0%, from(#FFC6B4), to(#FFF0EE));
+
+}
+#submitdiv .hndle{
+ background: -webkit-gradient(linear, 0% 100%, 0% 0%, from(#FFC6B4), to(#FFF0EE));
+}
+
+#major-publishing-actions{
+ background-color:#FFE4DB;
+}
+
+#aiosp_title_wrapper {
+  background-color: #fff1ef;
+}
+
+#aiosp_description_wrapper{
+  background-color: #fff1ef;
+  margin: 10px 0px;
+}
+#aiosp_keywords_wrapper{
+  background-color: #fff1ef;
+}
+
+/*hiyoko_toukou*/
+.tmce-active #insert-media-button {
+	margin-left: 10px;
+	margin-top: 65px;
+}
+.tmce-active .wp_themeSkin tr.mceFirst td.mceToolbar {
+	height: 60px;
+}
+.tmce-active .wp_themeSkin #content_toolbar1 {
+	margin-top: -25px;
+	background-color: transparent;
+}
+.tmce-active .wp_themeSkin tr.mceFirst td.mceToolbar {
+	border-bottom: 1px solid #d1d1d1;
+	background: #FFF0EE;
+	background-image: -webkit-gradient(linear,left bottom,left top,from(#FFC6B4),to(#FFF0EE));
+	background-image: -webkit-linear-gradient(bottom,#FFC6B4,#FFF0EE);
+	background-image: -moz-linear-gradient(bottom,#FFC6B4,#FFF0EE);
+	background-image: -o-linear-gradient(bottom,#FFC6B4,#FFF0EE);
+	background-image: linear-gradient(to top,#FFC6B4,#FFF0EE);
+}
+    
+.html-active #insert-media-button {
+	margin-left: 10px;
+	margin-top: 95px;
+}
+.html-active .quicktags-toolbar {
+	min-height: 90px;
+}
+
+/*hiyoko_gaikan*/
+#widget-21_googlewidget-5 .widget-title{
+ background: -webkit-gradient(linear, 0% 100%, 0% 0%, from(#FFC6B4), to(#FFF0EE));
+}
+#widget-21_googlewidget-5 .widget-inside{
+  background-color: #fff1ef;
+}
+
+#widget-30_amazonwidget-4 .widget-title{
+ background: -webkit-gradient(linear, 0% 100%, 0% 0%, from(#FFC6B4), to(#FFF0EE));
+}
+#widget-30_amazonwidget-4 .widget-inside{
+  background-color: #fff1ef;
+}
+
+#widget-23_widget_tw_image-3 .widget-title{
+ background: -webkit-gradient(linear, 0% 100%, 0% 0%, from(#FFC6B4), to(#FFF0EE));
+}
+#widget-23_widget_tw_image-3 .widget-inside{
+  background-color: #fff1ef;
+}
+
+#widget-22_widget_fb_image-16 .widget-title{
+ background: -webkit-gradient(linear, 0% 100%, 0% 0%, from(#FFC6B4), to(#FFF0EE));
+}
+#widget-22_widget_fb_image-16 .widget-inside{
+  background-color: #fff1ef;
+}
+
+.submit {
+margin-left: 10px;
+}
+
+#hiyoko-widgets-edit {
+float: right;
+}
+
+
+

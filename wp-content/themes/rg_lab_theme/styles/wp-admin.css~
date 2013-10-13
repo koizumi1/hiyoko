@@ -1,0 +1,20 @@
+#widgets-right [id*="googlewidget"] .widget-inside {
+     display: block;
+}
+#widgets-right [id*="amazonwidget"] .widget-inside {
+     display: block;
+}
+#widgets-right [id*="widget_tw"] .widget-inside {
+     display: block;
+}
+#widgets-right [id*="widget_fb"] .widget-inside {
+     display: block;
+}
+#hiyoko-widgets {
+    float: inherit;
+    margin-top: 3000px
+}
+#hiyoko-custom {
+    position: absolute;
+    margin-top: 150px;
+}

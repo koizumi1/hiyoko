@@ -1,0 +1,57 @@
+#widgets-right [id*="googlewidget"] .widget-inside {
+     display: block;
+}
+#widgets-right [id*="amazonwidget"] .widget-inside {
+     display: block;
+}
+#widgets-right [id*="widget_tw"] .widget-inside {
+     display: block;
+}
+#widgets-right [id*="widget_fb"] .widget-inside {
+     display: block;
+}
+
+#hiyoko-custom {
+
+    margin-top: 150px;
+}
+.postbox-container1 {
+    width: 30%;
+    float: left;
+}
+.postbox-container1 #categorydiv {
+    display: none !important;
+}
+.postbox-container1 #submitdiv {
+    display: none !important;
+}
+.postbox-container1 #postimagediv .inside {
+    display: block !important;
+}
+.postbox-container2 {
+    width: 30%;
+    float: left;
+    margin-left:23px;
+}
+.postbox-container2 #postimagediv {
+    display: none !important;
+}
+.postbox-container2 #submitdiv {
+    display:none !important;
+}
+.postbox-container2 #categorydiv .inside {
+    display: block !important;
+}
+.postbox-container3 {
+    width: 25%;
+    float: right;
+}
+.postbox-container3 #postimagediv {
+    display: none !important;
+}
+.postbox-container3 #categorydiv {
+    display:none !important;
+}
+.postbox-container3 #submitdiv .inside {
+    display: block !important;
+}
