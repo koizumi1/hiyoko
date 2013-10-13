@@ -437,6 +437,24 @@ class Custom_Image_Header {
 	});
 /* ]]> */
 </script>
+<script>
+//@cc_on  
+window. /*@if(true) attachEvent("on" + @else@*/
+addEventListener( /*@end@*/ "load", function() {
+var t = document.getElementById("hiyoko-custom");
+var img = t.getElementsByTagName("img");
+for(var i = 0, j = img.length; i < j; i++) {
+var w = img[i].width;
+var h = img[i].height;
+
+if(w > 500) {
+img[i].width = 1000;
+} else {
+}
+}
+}, false);
+</script>
+
 <?php
 	}
 
@@ -449,9 +467,8 @@ class Custom_Image_Header {
 		$this->process_default_headers();
 ?>
 
-<div class="wrap">
-<?php screen_icon(); ?>
-<h2><?php _e('Custom Header'); ?></h2>
+<div class="wrap" id="hiyoko-custom">
+<h2><?php echo "2.カスタムヘッダー"; ?></h2>
 
 <?php if ( ! empty( $this->updated ) ) { ?>
 <div id="message" class="updated">
@@ -520,6 +537,12 @@ class Custom_Image_Header {
 		<?php wp_nonce_field( 'custom-header-upload', '_wpnonce-custom-header-upload' ); ?>
 		<?php submit_button( __( 'Upload' ), 'button', 'submit', false ); ?>
 	</p>
+      
+      
+      
+      
+      
+      
 	<?php
 		$modal_update_href = esc_url( add_query_arg( array(
 			'page' => 'custom-header',
@@ -712,10 +735,11 @@ wp_nonce_field( 'custom-header-options', '_wpnonce-custom-header-options' ); ?>
 <form method="post" action="<?php echo esc_url(add_query_arg('step', 3)); ?>">
 	<p class="hide-if-no-js"><?php _e('Choose the part of the image you want to use as your header.'); ?></p>
 	<p class="hide-if-js"><strong><?php _e( 'You need Javascript to choose a part of the image.'); ?></strong></p>
-
+    <div id="hiyoko-custom">
 	<div id="crop_image" style="position: relative">
 		<img src="<?php echo esc_url( $url ); ?>" id="upload" width="<?php echo $width; ?>" height="<?php echo $height; ?>" />
 	</div>
+  </div>
 
 	<input type="hidden" name="x1" id="x1" value="0"/>
 	<input type="hidden" name="y1" id="y1" value="0"/>

@@ -963,13 +963,13 @@ if ( !class_exists( 'All_in_One_SEO_Pack_Module' ) ) {
 									  $args['options']['type'] = $options['type'] = 'checkbox';
 				case 'radio':		  $buf .= $this->do_multi_input( $args ); break;
 				case 'checkbox':	  if ( $value ) $attr .= ' CHECKED';
-									  $buf .= "<input name='$name' type='{$options['type']}' $attr>\n"; break;
-				case 'textarea':	  $buf .= "<textarea name='$name' $attr>$value</textarea>"; break;
+				  $buf .= "<input name='$name' type='{$options['type']}' $attr>\n"; break;
+				case 'textarea':	  $buf .= "<textarea onblur='alert_seo()' name='$name' $attr>$value</textarea>"; break;
 				case 'image':		  $buf .= "<input class='aioseop_upload_image_button button-primary' type='button' value='Upload Image' style='float:left;' />" .
 											  "<input class='aioseop_upload_image_label' name='$name' type='text' readonly $attr value='$value' size=57 style='float:left;clear:left;'>\n";
 									  break;
 				case 'html':		  $buf .= $value; break;
-				default:			  $buf .= "<input name='$name' type='{$options['type']}' $attr value='$value'>\n";
+				default:			  $buf .= "<input onblur='alert_seo()' name='$name' type='{$options['type']}' $attr value='$value'>\n";
 			}
 			if ( !empty( $options['count'] ) ) {
 				$size = 60;
@@ -1171,7 +1171,7 @@ if ( !class_exists( 'All_in_One_SEO_Pack_Module' ) ) {
 <?php				
 					do_action( 'aioseop_global_settings_header', $location );
 					do_action( $this->prefix . 'settings_header', $location );
-?>	<form id="aiosp_settings_form" name="dofollow" enctype="multipart/form-data" action="" method="post">
+?>	<form id="aiosp_settings_form" name="dofollow" enctype="multipart/form-data" action="" method="post" onsubmit="check(this);return false;">
 		<div id="aioseop_top_button">
 			<div id="aiosp_ajax_settings_message"></div>
 <?php

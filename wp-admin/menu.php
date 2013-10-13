@@ -40,16 +40,31 @@ if ( ! is_multisite() ) {
 		$cap = 'update_plugins';
 	else
 		$cap = 'update_themes';
-	$submenu[ 'index.php' ][10] = array( sprintf( __('Updates %s'), "<span class='update-plugins count-{$update_data['counts']['total']}' title='{$update_data['title']}'><span class='update-count'>" . number_format_i18n($update_data['counts']['total']) . "</span></span>" ), $cap, 'update-core.php');
+	$submenu[ 'index.php' ][10] = array( sprintf( __('Updates %s'), "<span class='update-posts count-{$update_data['counts']['plugins']}' title='{$update_data['title']}'><span class='update-count'>" . number_format_i18n($update_data['counts']['total']) . "</span></span>" ), $cap, 'update-core.php');
 	unset( $cap );
 }
+	$menu[4] = array( '', 'read', 'separator1', '', 'wp-menu-separator' );
 
-$menu[4] = array( '', 'read', 'separator1', '', 'wp-menu-separator' );
 
-$menu[5] = array( __('Posts'), 'edit_posts', 'edit.php', '', 'open-if-no-js menu-top menu-icon-post', 'menu-posts', 'none' );
-	$submenu['edit.php'][5]  = array( __('All Posts'), 'edit_posts', 'edit.php' );
-	/* translators: add new post */
-	$submenu['edit.php'][10]  = array( _x('Add New', 'post'), get_post_type_object( 'post' )->cap->create_posts, 'post-new.php' );
+	$numposts = $wpdb->get_var();
+
+
+
+
+
+
+		$menu[5] = array( sprintf(__('Posts %s'), "<span class='update-posts count-{$update_data['counts']['plugins']}' title='{$update_data['title']}'><span class='update-posts'>" . number_format_i18n($numposts) . "</span></span>" ),'edit_posts', 'edit.php', '', 'open-if-no-js menu-top menu-icon-post', 'menu-posts', 'none' );
+	if ( ! is_multisite() ) {
+		$submenu['edit.php'][5]  = array( __('All Posts'), 'edit_posts', 'edit.php' );
+		/* translators: add new post */
+		$submenu['edit.php'][10]  = array( _x('Add New', 'post'), get_post_type_object( 'post' )->cap->create_posts, 'post-new.php' );
+	}
+
+unset( $numposts );
+
+
+
+	
 
 	$i = 15;
 	foreach ( get_taxonomies( array(), 'objects' ) as $tax ) {

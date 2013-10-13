@@ -1,14 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="http://ctdgssf-ad8-app000.c4sa.net/wp-content/plugins/google-sitemap-generator/sitemap.xsl"?><!-- generator="wordpress/3.6.1" -->
 <!-- sitemap-generator-url="http://www.arnebrachhold.de" sitemap-generator-version="3.3" -->
-<!-- generated-on="2013年10月5日 7:06 AM" -->
+<!-- generated-on="2013年10月13日 3:36 AM" -->
 <!-- Debug: Total comment count: 1 -->
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">	<url>
 		<loc>http://ctdgssf-ad8-app000.c4sa.net/</loc>
-		<lastmod>2013-10-05T07:06:30+00:00</lastmod>
+		<lastmod>2013-10-10T04:14:16+00:00</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>1.0</priority>
 	</url>
 <!-- Debug: Start Postings -->
+<!-- Debug: Priority report of postID 130: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://ctdgssf-ad8-app000.c4sa.net/?p=130</loc>
+		<lastmod>2013-10-10T04:14:16+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 150: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://ctdgssf-ad8-app000.c4sa.net/?p=150</loc>
+		<lastmod>2013-10-10T02:23:58+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 15: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://ctdgssf-ad8-app000.c4sa.net/?p=15</loc>
+		<lastmod>2013-10-08T12:50:25+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 37: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://ctdgssf-ad8-app000.c4sa.net/?p=37</loc>
+		<lastmod>2013-10-08T12:34:33+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 120: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://ctdgssf-ad8-app000.c4sa.net/?p=120</loc>
+		<lastmod>2013-10-08T03:59:13+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 35: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://ctdgssf-ad8-app000.c4sa.net/?p=35</loc>
+		<lastmod>2013-10-05T08:17:25+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 33: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://ctdgssf-ad8-app000.c4sa.net/?p=33</loc>
+		<lastmod>2013-10-05T08:16:40+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 31: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://ctdgssf-ad8-app000.c4sa.net/?p=31</loc>
+		<lastmod>2013-10-05T08:16:11+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
 <!-- Debug: Priority report of postID 27: Comments: 0 of 1 = 0 points -->
 	<url>
 		<loc>http://ctdgssf-ad8-app000.c4sa.net/?p=27</loc>
@@ -34,13 +90,6 @@
 	<url>
 		<loc>http://ctdgssf-ad8-app000.c4sa.net/?p=17</loc>
 		<lastmod>2013-10-05T04:34:47+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-<!-- Debug: Priority report of postID 15: Comments: 0 of 1 = 0 points -->
-	<url>
-		<loc>http://ctdgssf-ad8-app000.c4sa.net/?p=15</loc>
-		<lastmod>2013-10-05T04:34:31+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>

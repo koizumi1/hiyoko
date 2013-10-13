@@ -353,16 +353,57 @@ wp_nonce_field( 'closedpostboxes', 'closedpostboxesnonce', false );
 ?>
 
 <div id="poststuff">
+  <div id="postbox-container-1" class="postbox-container1">
+<?php
+
+if ( 'page' == $post_type )
+	do_action('submitpage_box', $post);
+else
+	do_action('submitpost_box', $post);
+
+do_meta_boxes($post_type, 'side', $post);
+
+?>
+</div>
+  
+  <div id="postbox-container-1" class="postbox-container2">
+<?php
+
+if ( 'page' == $post_type )
+	do_action('submitpage_box', $post);
+else
+	do_action('submitpost_box', $post);
+
+do_meta_boxes($post_type, 'side', $post);
+
+?>
+</div>
+  
+  <div id="postbox-container-1" class="postbox-container3">
+<?php
+
+if ( 'page' == $post_type )
+	do_action('submitpage_box', $post);
+else
+	do_action('submitpost_box', $post);
+
+do_meta_boxes($post_type, 'side', $post);
+
+?>
+</div>
 <div id="post-body" class="metabox-holder columns-<?php echo 1 == get_current_screen()->get_columns() ? '1' : '2'; ?>">
-<div id="post-body-content">
+
+  <div id="post-body-content">
 
 <?php if ( post_type_supports($post_type, 'title') ) { ?>
+
 <div id="titlediv">
 <div id="titlewrap">
 	<label class="screen-reader-text" id="title-prompt-text" for="title"><?php echo apply_filters( 'enter_title_here', __( 'Enter title here' ), $post ); ?></label>
 	<input type="text" name="post_title" size="30" value="<?php echo esc_attr( htmlspecialchars( $post->post_title ) ); ?>" id="title" autocomplete="off" />
 </div>
 <div class="inside">
+
 <?php
 $sample_permalink_html = $post_type_object->public ? get_sample_permalink_html($post->ID) : '';
 $shortlink = wp_get_shortlink($post->ID, 'post');
@@ -425,18 +466,6 @@ do_action( 'edit_form_after_editor', $post );
 ?>
 </div><!-- /post-body-content -->
 
-<div id="postbox-container-1" class="postbox-container">
-<?php
-
-if ( 'page' == $post_type )
-	do_action('submitpage_box', $post);
-else
-	do_action('submitpost_box', $post);
-
-do_meta_boxes($post_type, 'side', $post);
-
-?>
-</div>
 <div id="postbox-container-2" class="postbox-container">
 <?php
 
@@ -462,6 +491,7 @@ do_action('dbx_post_sidebar', $post);
 </form>
 </div>
 
+
 <?php
 if ( post_type_supports( $post_type, 'comments' ) )
 	wp_comment_reply();
@@ -472,3 +502,4 @@ if ( post_type_supports( $post_type, 'comments' ) )
 try{document.post.title.focus();}catch(e){}
 </script>
 <?php endif; ?>
+

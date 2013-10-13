@@ -548,7 +548,7 @@ a:hover {
 #branding img {
 	height: auto;
 	display: block;
-	width: 100%;
+	/*width: 100%;*/
 }
 
 
@@ -3036,4 +3036,8 @@ padding-top: 0;
 margin-left: 190px;
 margin-bottom: 20px;
 
+}
+
+#aiosp_home_metabox h3 .hndle {
+background: -webkit-gradient(linear, 0% 100%, 0% 0%, from(#FFC6B4), to(#FFF0EE));
 }

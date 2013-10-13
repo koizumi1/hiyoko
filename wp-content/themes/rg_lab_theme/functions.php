@@ -119,8 +119,8 @@ function twentyeleven_setup() {
 		// The default header text color.
 		'default-text-color' => '000',
 		// The height and width of our custom header.
-		'width' => apply_filters( 'twentyeleven_header_image_width', 0 ),
-		'height' => apply_filters( 'twentyeleven_header_image_height', 0),
+		'width' => apply_filters( 'twentyeleven_header_image_width', 1000 ),
+		'height' => apply_filters( 'twentyeleven_header_image_height', 200 ),
 		// Support flexible heights.
 		'flex-height' => true,
 		// Random image rotation by default.
@@ -293,6 +293,7 @@ function twentyeleven_admin_header_style() {
 	#headimg img {
 		max-width: 1000px;
 		height: auto;
+		/*width: 100%;*/
 	}
 	</style>
 <?php
@@ -612,50 +613,257 @@ function twentyeleven_body_classes( $classes ) {
 }
 add_filter( 'body_class', 'twentyeleven_body_classes' );
 
+
+/* ログインしないと読めないように oouchida */
+/* 公開に伴いコメントアウト nishikaze
+function require_login() {
+    if ( ! is_user_logged_in() && ! preg_match( '/^(wp-login\.php|async-upload\.php)/', basename( $_SERVER['REQUEST_URI'] ) ) && ! ( defined( 'DOING_AJAX' ) && DOING_AJAX )  && ! ( defined( 'DOING_CRON' ) && DOING_CRON ) ) {
+        auth_redirect();
+    }
+}
+add_action( 'init', 'require_login' );
+*/
+
+/* -- change by koizumi -- */
+/* add admin menu */
+
+        add_action('admin_menu', 'register_custom_menu_page');
+        function register_custom_menu_page() {
+                  add_menu_page('hiyoko', 'ひよこ外観', 'level_10', 'custom-header', 'create_custom_menu_page','', 3);
+ 
+        }
+        function create_custom_menu_page() {
+                  require TEMPLATEPATH.'/admin/site_settings.php';  
+        }
+ 
+        function admin_bug_css() {
+                 echo '<style type="text/css">#postbox-container-1 #side-sortables .hide-if-js { display:block; }</style>';
+        }
+        add_action('admin_head', 'admin_bug_css');
+        function admin_css() {
+            echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo("url").'/wp-content/themes/rg_lab_theme/styles/wp-admin.css" media="all">';
+         }
+        add_action('admin_head', 'admin_css');
+        function add_my_css() {
+        /* CSSの格納パス[WP-home]/wp-content/plugins/my-plugin/myStyle.css */
+                  $cssPath = WP_CONTENT_DIR . '/theme/rg_lab_theme/styles/blog.css';
+ 
+        /* CSSファイルが存在すれば、関数呼び出しでCSSを追加する */
+                if(file_exists($cssPath)){
+          /* CSSの格納URL */
+      $cssUrl = bloginfo('stylesheet_url').'/styles/blog.css';
+          /* CSS登録 */
+          wp_register_style('blog', $cssUrl);
+          /* CSS追加 */
+          wp_enqueue_style('blog');
+        		}
+        }
+        /* アクションフック */
+        add_action('wp_print_styles', 'add_my_css');
+        function remove_default_post_screen_metaboxes() {
+                  remove_meta_box('tagsdiv-post_tag', 'post', 'normal');
+                  remove_meta_box('formatdiv', 'post', 'normal');
+        }
+        add_action('admin_menu', 'remove_default_post_screen_metaboxes');
+ 
+        class GoogleWidget extends WP_Widget {
+                function GoogleWidget() {
+                    parent::WP_Widget(false, $name = 'googleアドセンス');
+            	}
+                function widget($args, $instance) {
+                	extract( $args );
+                	$body = apply_filters( 'widget_body', $instance['body'] );                
+	?>
+                <?php echo '<p>' . $body . '</p>'; ?>
+        
+<?php
+				}
+                
+    			function update($new_instance, $old_instance) {
+                	$instance = $old_instance;
+                	$instance['body'] = trim($new_instance['body']);
+        			return $instance;
+    			}
+    			function form($instance) {
+        			$body = esc_attr($instance['body']);
+?>
+        
+        <p>
+          <div class="google_label">
+                   <label for="<?php echo $this->get_field_id('body'); ?>">
+                   <?php _e('googleアドセンスコード:'); ?>
+                   </label>
+          </div>
+              <textarea  class="widefat google_link" rows="16" colls="20" id="<?php echo $this->get_field_id('body'); ?>" onBlur="alert_google()" name="<?php echo $this->get_field_name('body'); ?>">
+                  <?php if ($body == ""){ echo '' ;}
+                      else{
+                echo $body;}
+          ?>
+          </textarea>
+        </p>
+        
+                <?php
+    		   }
+		}
+ 
+        add_action('widgets_init', create_function('', 'return register_widget("GoogleWidget");'));
+        class AmazonWidget extends WP_Widget {
+        	function AmazonWidget() {
+            	parent::WP_Widget(false, $name = 'Amazonアソシエイト');
+   			}
+    		function widget($args, $instance) {
+        		extract( $args );
+       			$body = apply_filters( 'widget_body', $instance['body'] );
+				
+            	?>
+        		<?php echo '<p>' . $body . '</p>'; ?>
+      
+    		<?php
+    		}
+    		function update($new_instance, $old_instance) {
+                $instance = $old_instance;
+                $instance['body'] = trim($new_instance['body']);
+        		return $instance;
+    		}
+    		function form($instance) {          
+       			$body = esc_attr($instance['body']);
+    		?>
+        		<p>
+                	<div class="amazon_label">
+                    	<label for="<?php echo $this->get_field_id('body'); ?>">
+                           <?php _e('Amazonアソシエイトコード:'); ?>
+                        </label>
+                    </div>
+           			<textarea  class="widefat amazon_link" rows="16" colls="20" id="<?php echo $this->get_field_id('body'); ?>" onBlur="alert_amazon()" name="<?php echo $this->get_field_name('body'); ?>">
+            <?php if ($body == ""){
+				echo '<script type="text/javascript"><!--
+amazon_ad_tag = "r0488-22"; amazon_ad_width = "160"; amazon_ad_height = "600"; amazon_ad_logo = "hide"; amazon_ad_link_target = "new";//--></script>
+<script type="text/javascript" src="http://ir-jp.amazon-adsystem.com/s/ads.js"></script>' ;}
+				else{
+					echo $body;}
+           	?>
+           			</textarea>
+        		</p>
+        	<?php
+    		}
+		}
+ 
+        add_action('widgets_init', create_function('', 'return register_widget("AmazonWidget");'));
+        function open_postboxes(){
+ 
+            ?>
+                 <script type="text/javascript">
+                    if(location.href.match(/post/)){
+                            jQuery(function() {
+                                jQuery("div.postbox").toggleClass("closed");
+                              });
+                              console.log("open");
+                    }
+                </script>
+ 
+        	<?php
+        }
+ 
+/*add_action('init', open_postboxes());*/
+ 
+/*Post ID global*/
+ 
+        function nskw_meta_box_inside() {
+                $post = null;
+                $post_type = "post";
+                $title = "title";
+                $post_type_object = get_post_type_object($post_type);
+                if ( post_type_supports($post_type, 'title') ) { 
+        ?>
+                <div id="titlediv">
+                        <div id="titlewrap">
+                                <label class="screen-reader-text" id="title-prompt-text" for="title"><?php echo apply_filters( 'enter_title_here', __( 'Enter title here' ), $post ); ?></label>
+                                <input type="text" name="post_title" size="30" value="<?php echo esc_attr( htmlspecialchars( $post->post_title ) ); ?>" id="title" autocomplete="off" />
+                        </div>
+                        <div class="inside">
+        <?php
+                                $sample_permalink_html = $post_type_object->public ? get_sample_permalink_html($post->ID) : '';
+                                $shortlink = wp_get_shortlink($post->ID, 'post');
+                                if ( !empty($shortlink) ) 
+                                  $sample_permalink_html .= '<input id="shortlink" type="hidden" value="' . esc_attr($shortlink) . '" /><a href="#" class="button button-small" onclick="prompt(&#39;URL:&#39;, jQuery(\'#shortlink\').val()); return false;">' . __('Get Shortlink') . '</a>';
+ 
+                                if ( $post_type_object->public && ! ( 'pending' == get_post_status( $post ) && !current_user_can( $post_type_object->cap->publish_posts ) ) ) {
+                                $has_sample_permalink = $sample_permalink_html && 'auto-draft' != $post->post_status;
+        ?>
+                                <div id="edit-slug-box" class="hide-if-no-js">
+        <?php
+                                        if ( $has_sample_permalink ) { echo $sample_permalink_html; }
+        ?>
+                                </div>
+        <?php 
+                                } 
+        ?>
+                        </div>
+        <?php
+                wp_nonce_field( 'samplepermalink', 'samplepermalinknonce', false );
+        ?>
+                </div><!-- /titlediv -->
+        <?php
+		  }
+		}
+        global $post;
+global $post_type;
+        do_action( 'edit_form_after_title', $post );
+        if ( post_type_supports($post_type, 'editor') ) {
+                // メタボックスを追加する関数
+        function nskw_meta_box_output() {
+            add_meta_box('nskw_meta_post_page', 'タイトル', 'nskw_meta_box_inside', 'post', 'side', 'core' );
+          }
+        }
+
+        
+        
+        // フックする
+                add_action('admin_menu', 'nskw_meta_box_output' );
+      
+    	
+		
+
+// CSS
+function hoge_css() {
+	echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo("template_directory").'/css/hoge.css">';
+}
+add_action('admin_head', 'hoge_css');
 ?>
 
 <?php
-/**
- * nagano edit
- */
+function custom_menu_order($menu_ord) {
+    if (!$menu_ord) return true;
+    return array(
+        'index.php', // ダッシュボード        
+        'edit.php', // 投稿
+        'custom-header',//hiyoko
+        'options-general.php', // 設定
+        'separator1', // 仕切り
+        'upload.php', // メディア
+        'link-manager.php', // リンク
+        'edit.php?post_type=page', // 固定ページ
+        'edit-comments.php', // コメント
+        'separator2', // 仕切り
+ /*       'themes.php', // 外観*/
+        'plugins.php', // プラグイン
+        'users.php', // ユーザー
+        'tools.php', // ツール
+        'separator-last', // 仕切り
+    );
 
-add_theme_support( 'post-thumbnails' );
-set_post_thumbnail_size( 200, 200, true );
-?>
- <?php     
-$defaults = array(
-	'default-image'          => '', //デフォルト画像
-	'random-default'         => false, //ランダム表示
-	'width'                  => 0, //幅
-	'height'                 => 0, //高さ
-	'flex-height'            => false, //フレキシブル対応（高さ）
-	'flex-width'             => false, //フレキシブル対応（幅）
-	'default-text-color'     => '', //デフォルトのテキストの色
-	'header-text'            => true, //ヘッダー画像上にテキストを表示する
-	'uploads'                => true, //ファイルアップロードを許可する
-	'wp-head-callback'       => '', 
-	'admin-head-callback'    => '', 
-	'admin-preview-callback' => '', 
-);
-add_theme_support( 'custom-header' , $defaults);
-
-function remove_hwstring_from_image_tag( $html, $id, $alt, $title, $align, $size ) {
-    	list( $img_src, $width, $height ) = image_downsize($id, $size);
-    	$hwstring = image_hwstring( $width, $height );
-   	 	$html = str_replace( $hwstring, '', $html );
-    	return $html;
-	}
-
-add_filter( 'get_image_tag', 'remove_hwstring_from_image_tag', 10, 6 );
-?>
-  
-      <!-- * ***** koizumi modified ****** -->     
-<?php
-add_action('admin_menu', 'add_hiyoko_page');
-function add_hiyoko_page() {
-  add_menu_page("hiyoko", "ひよこ外観", 0, "hiyoko_settings", "create_hiyoko_page", "", 3);
 }
-function create_hiyoko_page(){
-  require STYLESHEETPATH."/admin/hiyoko_settings.php";
-}
+add_filter('custom_menu_order', 'custom_menu_order');
+add_filter('menu_order', 'custom_menu_order');
+
+
+
+
+
+
+
+
+
+
+
 ?>

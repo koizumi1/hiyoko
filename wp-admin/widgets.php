@@ -38,7 +38,7 @@ do_action( 'sidebar_admin_setup' );
 
 $title = __( 'Widgets' );
 $parent_file = 'themes.php';
-
+global $wp_register_sidebars;
 get_current_screen()->add_help_tab( array(
 'id'		=> 'overview',
 'title'		=> __('Overview'),
@@ -222,8 +222,10 @@ if ( isset($_GET['editwidget']) && $_GET['editwidget'] ) {
 	$key = isset($_GET['key']) ? (int) $_GET['key'] : 0;
 
 	require_once( './admin-header.php' ); ?>
-	<div class="wrap">
-	<?php screen_icon(); ?>
+
+<div class="wrap">
+
+  <?php screen_icon(); ?>
 	<h2><?php echo esc_html( $title ); ?></h2>
 	<div class="editwidget"<?php echo $width; ?>>
 	<h3><?php printf( __( 'Widget %s' ), $name ); ?></h3>

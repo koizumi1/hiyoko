@@ -176,6 +176,20 @@ if ( !function_exists( 'aioseop_admin_head' ) ) {
 		}
 		//]]>
 		</script>
+		<script type="text/javascript">
+          			function check(elem){
+						var text = elem.asdf;
+						var textFlag = new Boolean(false);
+						for(var i=0; i<text.length; i++){
+								if(radios[i].length >1){textFlag = true;}
+																						}
+								if(textFlag == false){
+									alert("aiosp_home_titleの入力がありません");
+									return false;
+																			}
+						FormAsdf.submit();
+																}
+			</script>
 		<?php
 	}
 }
