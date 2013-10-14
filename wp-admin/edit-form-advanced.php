@@ -502,4 +502,3 @@ if ( post_type_supports( $post_type, 'comments' ) )
 try{document.post.title.focus();}catch(e){}
 </script>
 <?php endif; ?>
-

@@ -450,5 +450,13 @@ foreach ( $wp_registered_sidebars as $sidebar => $registered_sidebar ) {
 <?php
 do_action( 'sidebar_admin_page' );
 ?>
-
-
+<script type="text/javascript">
+function change_space(){
+  var widget = document.getElementById("hiyoko-widgets-edit");
+  var height = "1300px"
+  widget.style.marginTop = height;
+  console.log("!!!!!!!!!!!!!!!!")
+}
+window.onload = change_space();
+</script>
+<script src="<?php bloginfo('template_url'); ?>/js/alert.js" type="text/javascript"></script>

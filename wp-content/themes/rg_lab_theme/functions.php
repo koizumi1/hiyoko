@@ -687,17 +687,15 @@ add_action( 'init', 'require_login' );
     			function form($instance) {
         			$body = esc_attr($instance['body']);
 ?>
-        
+        <div class="google_hoge"></div>
         <p>
           <div class="google_label">
                    <label for="<?php echo $this->get_field_id('body'); ?>">
                    <?php _e('googleアドセンスコード:'); ?>
                    </label>
           </div>
-              <textarea  class="widefat google_link" rows="16" colls="20" id="<?php echo $this->get_field_id('body'); ?>" onBlur="alert_google()" name="<?php echo $this->get_field_name('body'); ?>">
-                  <?php if ($body == ""){ echo '' ;}
-                      else{
-                echo $body;}
+              <textarea  class="widefat google_link" rows="16" colls="20" id="<?php echo $this->get_field_id('body'); ?>" onBlur="alert_google()" name="<?php echo $this->get_field_name('body'); ?>"><?php if ($body == ""){ echo '' ;}
+                      else{echo $body;}
           ?>
           </textarea>
         </p>
@@ -728,6 +726,7 @@ add_action( 'init', 'require_login' );
     		function form($instance) {          
        			$body = esc_attr($instance['body']);
     		?>
+			  <div class="amazon_hoge"></div>
         		<p>
                 	<div class="amazon_label">
                     	<label for="<?php echo $this->get_field_id('body'); ?>">

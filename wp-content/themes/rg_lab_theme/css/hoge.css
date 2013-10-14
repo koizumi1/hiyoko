@@ -91,32 +91,29 @@
 }
 
 /*hiyoko_gaikan*/
-#widget-21_googlewidget-5 .widget-title{
- background: -webkit-gradient(linear, 0% 100%, 0% 0%, from(#FFC6B4), to(#FFF0EE));
-}
-#widget-21_googlewidget-5 .widget-inside{
-  background-color: #fff1ef;
-}
 
-#widget-30_amazonwidget-4 .widget-title{
+#sidebar-1 [id*="google"] .widget-title{
  background: -webkit-gradient(linear, 0% 100%, 0% 0%, from(#FFC6B4), to(#FFF0EE));
 }
-#widget-30_amazonwidget-4 .widget-inside{
-  background-color: #fff1ef;
+#sidebar-1 [id*="google"] .widget-inside{
+ background-color: #fff1ef;
 }
-
-#widget-23_widget_tw_image-3 .widget-title{
+#sidebar-1 [id*="amazon"] .widget-title{
  background: -webkit-gradient(linear, 0% 100%, 0% 0%, from(#FFC6B4), to(#FFF0EE));
 }
-#widget-23_widget_tw_image-3 .widget-inside{
-  background-color: #fff1ef;
+#sidebar-1 [id*="amazon"] .widget-inside{
+ background-color: #fff1ef;
 }
-
-#widget-22_widget_fb_image-16 .widget-title{
+#sidebar-1 [id*="tw"] .widget-title{
  background: -webkit-gradient(linear, 0% 100%, 0% 0%, from(#FFC6B4), to(#FFF0EE));
 }
-#widget-22_widget_fb_image-16 .widget-inside{
-  background-color: #fff1ef;
+#sidebar-1 [id*="tw"] .widget-inside{
+ background-color: #fff1ef;
+}#sidebar-1 [id*="fb"] .widget-title{
+ background: -webkit-gradient(linear, 0% 100%, 0% 0%, from(#FFC6B4), to(#FFF0EE));
+}
+#sidebar-1 [id*="fb"] .widget-inside{
+ background-color: #fff1ef;
 }
 
 .submit {
@@ -127,5 +124,58 @@ margin-left: 10px;
 float: right;
 }
 
+#alerttitle {
+  background: #ff2000;
+  color: white;
+  float: left;
+  -webkit-transform: scale(1.5);
+  margin-left: 55px;
+}
+#alertdes {
+  background: #ff2000;
+  color: white;
+  float: left;
+  -webkit-transform: scale(1.5);
+  margin-left: 55px;
+}
+#alertkey {
+  background: #ff2000;
+  color: white;
+  float: left;
+  -webkit-transform: scale(1.5);
+  margin-left: 55px;
+}
 
+#alertgoogle {
+  background: #ff2000;
+  color: white;
+  -webkit-transform: scale(1.5);
+  margin-left: 24px;
+  margin-right: 108px;
 
+}
+#alertamazon {
+  background: #ff2000;
+  color: white;
+  -webkit-transform: scale(1.5);
+  margin-left: 24px;
+  margin-right: 108px;
+}
+#alerttw {
+  background: #ff2000;
+  color: white;
+  -webkit-transform: scale(1.5);
+  margin-left: 24px;
+  margin-right: 108px;
+}
+#alertfb {
+  background: #ff2000;
+  color: white;
+  -webkit-transform: scale(1.5);
+  margin-left: 24px;
+  margin-right: 108px;
+}
+#alertcount {
+  float: right;
+
+}

@@ -13,7 +13,7 @@
 
 #hiyoko-custom {
 
-    margin-top: 150px;
+
 }
 .postbox-container1 {
     width: 30%;
@@ -54,4 +54,8 @@
 }
 .postbox-container3 #submitdiv .inside {
     display: block !important;
+}
+#hiyoko-widgets-edit {
+    position: absolute;
+ 
 }

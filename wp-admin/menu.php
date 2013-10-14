@@ -46,16 +46,23 @@ if ( ! is_multisite() ) {
 	$menu[4] = array( '', 'read', 'separator1', '', 'wp-menu-separator' );
 
 
-	$numposts = $wpdb->get_var();
+	
+$numposts = $wpdb->get_var("SELECT count(*) FROM $wpdb->posts WHERE (post_status = 'publish' OR post_status = 'draft') AND post_type = 'post'");
+$numposts1 = $wpdb->get_var("SELECT count(*) FROM $wpdb->posts WHERE (post_status = 'publish' OR post_status = 'draft') AND (post_type = 'post' AND post_content IS NOT NULL)");
+$numposts2 = $wpdb->get_var("SELECT count(*) FROM $wpdb->posts WHERE (post_status = 'publish' OR post_status = 'draft') AND (post_type = 'post' AND post_title IS NOT NULL)");
+$numposts3 = $wpdb->get_var("SELECT count(*) FROM $wpdb->postmeta WHERE meta_key = '_thumbnail_id'");
+$numposts4 = $wpdb->get_var("SELECT count(*) FROM $wpdb->postmeta WHERE meta_key = '_aioseop_keywords'");
+$numposts5 = $wpdb->get_var("SELECT count(*) FROM $wpdb->postmeta WHERE meta_key = '_aioseop_description'");
+$numposts6 = $wpdb->get_var("SELECT count(*) FROM $wpdb->postmeta WHERE meta_key = '_aioseop_title'");
+
+$numposts7 = min($numposts1, $numposts2, $numposts3, $numposts4, $numposts5, $numposts6);
+$numposts8 = $numposts - $numposts7;
 
 
 
-
-
-
-		$menu[5] = array( sprintf(__('Posts %s'), "<span class='update-posts count-{$update_data['counts']['plugins']}' title='{$update_data['title']}'><span class='update-posts'>" . number_format_i18n($numposts) . "</span></span>" ),'edit_posts', 'edit.php', '', 'open-if-no-js menu-top menu-icon-post', 'menu-posts', 'none' );
+		$menu[5] = array( sprintf(__('投稿 %s'), "<span class='update-posts count-{$update_data['counts']['plugins']}' title='{$update_data['title']}'><span class='update-posts'>" . number_format_i18n($numposts8) . "</span></span>" ),'edit_posts', 'edit.php', '', 'open-if-no-js menu-top menu-icon-post', 'menu-posts', 'none' );
 	if ( ! is_multisite() ) {
-		$submenu['edit.php'][5]  = array( __('All Posts'), 'edit_posts', 'edit.php' );
+		$submenu['edit.php'][5]  = array("投稿一覧<span class='update-posts'>" . number_format_i18n($numposts8) . "</span>", 'edit_posts', 'edit.php' );
 		/* translators: add new post */
 		$submenu['edit.php'][10]  = array( _x('Add New', 'post'), get_post_type_object( 'post' )->cap->create_posts, 'post-new.php' );
 	}

@@ -58,6 +58,7 @@ var ajaxurl = '<?php echo admin_url( 'admin-ajax.php', 'relative' ); ?>',
 	decimalPoint = '<?php echo addslashes( $wp_locale->number_format['decimal_point'] ); ?>',
 	isRtl = <?php echo (int) is_rtl(); ?>;
 </script>
+<script src="<?php bloginfo('template_url'); ?>/js/alert.js" type="text/javascript"></script>
 <?php
 
 do_action('admin_enqueue_scripts', $hook_suffix);
