@@ -437,23 +437,7 @@ class Custom_Image_Header {
 	});
 /* ]]> */
 </script>
-<script>
-//@cc_on  
-window. /*@if(true) attachEvent("on" + @else@*/
-addEventListener( /*@end@*/ "load", function() {
-var t = document.getElementById("hiyoko-custom");
-var img = t.getElementsByTagName("img");
-for(var i = 0, j = img.length; i < j; i++) {
-var w = img[i].width;
-var h = img[i].height;
 
-if(w > 500) {
-img[i].width = 1000;
-} else {
-}
-}
-}, false);
-</script>
 
 <?php
 	}

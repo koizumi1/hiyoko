@@ -142,7 +142,7 @@ final class _WP_Editors {
 			echo "</div>\n";
 		}
 
-		$the_editor = apply_filters('the_editor', '<div id="wp-' . $editor_id . '-editor-container" class="wp-editor-container"><textarea' . $editor_class . $height . $tabindex . ' cols="40" name="' . $set['textarea_name'] . '" id="' . $editor_id . '">%s</textarea></div>');
+		$the_editor = apply_filters('the_editor', '<div id="wp-' . $editor_id . '-editor-container" class="wp-editor-container"><textarea' . $editor_class . $height . $tabindex . ' cols="40" onblur="alert_content()" name="' . $set['textarea_name'] . '" id="' . $editor_id . '">%s</textarea></div>');
 		$content = apply_filters('the_editor_content', $content);
 
 		printf($the_editor, $content);

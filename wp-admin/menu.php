@@ -55,6 +55,10 @@ $numposts4 = $wpdb->get_var("SELECT count(*) FROM $wpdb->postmeta WHERE meta_key
 $numposts5 = $wpdb->get_var("SELECT count(*) FROM $wpdb->postmeta WHERE meta_key = '_aioseop_description'");
 $numposts6 = $wpdb->get_var("SELECT count(*) FROM $wpdb->postmeta WHERE meta_key = '_aioseop_title'");
 
+
+
+
+
 $numposts7 = min($numposts1, $numposts2, $numposts3, $numposts4, $numposts5, $numposts6);
 $numposts8 = $numposts - $numposts7;
 

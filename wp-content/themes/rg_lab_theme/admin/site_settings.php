@@ -453,7 +453,7 @@ do_action( 'sidebar_admin_page' );
 <script type="text/javascript">
 function change_space(){
   var widget = document.getElementById("hiyoko-widgets-edit");
-  var height = "1300px"
+  var height = "1500px"
   widget.style.marginTop = height;
   console.log("!!!!!!!!!!!!!!!!")
 }

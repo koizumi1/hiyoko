@@ -328,8 +328,49 @@ if ( isset( $post_new_file ) && current_user_can( $post_type_object->cap->create
 	<span class="hide-if-no-sessionstorage"><?php _e( 'We&#8217;re backing up this post in your browser, just in case.' ); ?></span>
 	</p>
 </div>
+ <form name="post" action="post.php" method="post" id="post"<?php do_action('post_edit_form_tag', $post); ?>>
 
-<form name="post" action="post.php" method="post" id="post"<?php do_action('post_edit_form_tag', $post); ?>>
+   <div id="titlediv">
+<div id="titlewrap">
+  <div class="handlediv" title="クリックで切替"><br /></div><h3 class='hndle'><span>タイトル</span></h3>
+	<label class="screen-reader-text" id="title-prompt-text" for="title"><?php echo apply_filters( 'enter_title_here', __( 'Enter title here' ), $post ); ?></label>
+	<input type="text" name="post_title" onblur="alert_title()" value="<?php echo esc_attr( htmlspecialchars( $post->post_title ) ); ?>" id="title" autocomplete="off" />
+</div>
+    
+   
+   <?php if ( post_type_supports($post_type, 'title') ) { ?>
+
+
+<div class="inside">
+
+<?php
+$sample_permalink_html = $post_type_object->public ? get_sample_permalink_html($post->ID) : '';
+$shortlink = wp_get_shortlink($post->ID, 'post');
+if ( !empty($shortlink) )
+    $sample_permalink_html .= '<input id="shortlink" type="hidden" value="' . esc_attr($shortlink) . '" /><a href="#" class="button button-small" onclick="prompt(&#39;URL:&#39;, jQuery(\'#shortlink\').val()); return false;">' . __('Get Shortlink') . '</a>';
+
+if ( $post_type_object->public && ! ( 'pending' == get_post_status( $post ) && !current_user_can( $post_type_object->cap->publish_posts ) ) ) {
+	$has_sample_permalink = $sample_permalink_html && 'auto-draft' != $post->post_status;
+?>
+	<div id="edit-slug-box" class="hide-if-no-js">
+	<?php
+		if ( $has_sample_permalink )
+			echo $sample_permalink_html;
+	?>
+	</div>
+<?php
+}
+?>
+</div>
+<?php
+wp_nonce_field( 'samplepermalink', 'samplepermalinknonce', false );
+?>
+</div><!-- /titlediv -->
+   
+   
+
+
+
 <?php wp_nonce_field($nonce_action); ?>
 <input type="hidden" id="user-id" name="user_ID" value="<?php echo (int) $user_ID ?>" />
 <input type="hidden" id="hiddenaction" name="action" value="<?php echo esc_attr( $form_action ) ?>" />
@@ -395,38 +436,7 @@ do_meta_boxes($post_type, 'side', $post);
 
   <div id="post-body-content">
 
-<?php if ( post_type_supports($post_type, 'title') ) { ?>
 
-<div id="titlediv">
-<div id="titlewrap">
-	<label class="screen-reader-text" id="title-prompt-text" for="title"><?php echo apply_filters( 'enter_title_here', __( 'Enter title here' ), $post ); ?></label>
-	<input type="text" name="post_title" size="30" value="<?php echo esc_attr( htmlspecialchars( $post->post_title ) ); ?>" id="title" autocomplete="off" />
-</div>
-<div class="inside">
-
-<?php
-$sample_permalink_html = $post_type_object->public ? get_sample_permalink_html($post->ID) : '';
-$shortlink = wp_get_shortlink($post->ID, 'post');
-if ( !empty($shortlink) )
-    $sample_permalink_html .= '<input id="shortlink" type="hidden" value="' . esc_attr($shortlink) . '" /><a href="#" class="button button-small" onclick="prompt(&#39;URL:&#39;, jQuery(\'#shortlink\').val()); return false;">' . __('Get Shortlink') . '</a>';
-
-if ( $post_type_object->public && ! ( 'pending' == get_post_status( $post ) && !current_user_can( $post_type_object->cap->publish_posts ) ) ) {
-	$has_sample_permalink = $sample_permalink_html && 'auto-draft' != $post->post_status;
-?>
-	<div id="edit-slug-box" class="hide-if-no-js">
-	<?php
-		if ( $has_sample_permalink )
-			echo $sample_permalink_html;
-	?>
-	</div>
-<?php
-}
-?>
-</div>
-<?php
-wp_nonce_field( 'samplepermalink', 'samplepermalinknonce', false );
-?>
-</div><!-- /titlediv -->
 <?php
 }
 

@@ -1127,7 +1127,7 @@ function _wp_post_thumbnail_html( $thumbnail_id = null, $post = null ) {
 	$post = get_post( $post );
 
 	$upload_iframe_src = esc_url( get_upload_iframe_src('image', $post->ID ) );
-	$set_thumbnail_link = '<p class="hide-if-no-js"><a title="' . esc_attr__( 'Set featured image' ) . '" href="%s" id="set-post-thumbnail" class="thickbox">%s</a></p>';
+	$set_thumbnail_link = '<p class="hide-if-no-js"><a title="' . esc_attr__( 'Set featured image' ) . '" href="%s" id="set-post-thumbnail" onclick="alert_thumbnail()" class="thickbox">%s</a></p>';
 	$content = sprintf( $set_thumbnail_link, $upload_iframe_src, esc_html__( 'Set featured image' ) );
 
 	if ( $thumbnail_id && get_post( $thumbnail_id ) ) {
@@ -1140,7 +1140,7 @@ function _wp_post_thumbnail_html( $thumbnail_id = null, $post = null ) {
 		if ( !empty( $thumbnail_html ) ) {
 			$ajax_nonce = wp_create_nonce( 'set_post_thumbnail-' . $post->ID );
 			$content = sprintf( $set_thumbnail_link, $upload_iframe_src, $thumbnail_html );
-			$content .= '<p class="hide-if-no-js"><a href="#" id="remove-post-thumbnail" onclick="WPRemoveThumbnail(\'' . $ajax_nonce . '\');return false;">' . esc_html__( 'Remove featured image' ) . '</a></p>';
+			$content .= '<p class="hide-if-no-js"><a href="#" id="remove-post-thumbnail" onclick="WPRemoveThumbnail(\'' . $ajax_nonce . '\');alert_thumbnail();return false;">' . esc_html__( 'Remove featured image' ) . '</a></p>';
 		}
 		$content_width = $old_content_width;
 	}

@@ -1,4 +1,6 @@
-/*menu_color*/
+/*menu_color
+----------------------------------*/
+
 .wp-first-item.wp-has-submenu.wp-not-current-submenu.menu-top.menu-top-first.menu-icon-dashboard.menu-top-first {
 	background-color: #FFBCBC;
 }
@@ -18,7 +20,9 @@
 	background-color: #FFDEBC;
 }
 
-/*All in One SEO_color*/
+/*All in One SEO_color
+----------------------------------------------*/
+
 #aiosp_home_metabox .inside{
   background-color: #fff1ef;
   padding: 18px 0px 10px 0px;
@@ -60,7 +64,9 @@
   background-color: #fff1ef;
 }
 
-/*hiyoko_toukou*/
+/*hiyoko_toukou
+--------------------------------------*/
+
 .tmce-active #insert-media-button {
 	margin-left: 10px;
 	margin-top: 65px;
@@ -90,7 +96,51 @@
 	min-height: 90px;
 }
 
-/*hiyoko_gaikan*/
+#titlediv .hndle {
+  background: -webkit-gradient(linear, 0% 100%, 0% 0%, from(#FFC6B4), to(#FFF0EE));
+  width: 60%;
+  text-shadow: #fff 0 1px 0;
+  padding: 7px 10px 7px 10px;
+  border-radius: 3px;
+}
+  
+#titlediv #title {
+width: 60%;
+}
+
+#alerttitle {
+  background: #ff2000;
+  color: white;
+  float: left;
+  margin-left: 55px;
+  font-size: 15px;
+  padding: 5px 30px 5px 30px;
+}
+#alertdes {
+  background: #ff2000;
+  color: white;
+  float: left;
+  margin-left: 55px;
+  font-size: 15px;
+  padding: 5px 30px 5px 30px;
+}
+#alertkey {
+  background: #ff2000;
+  color: white;
+  float: left;
+  margin-left: 55px;
+  font-size: 15px;
+  padding: 5px 30px 5px 30px;
+}
+
+
+/*#postimagediv .inside {
+background-color: #fff1ef;
+padding: 18px 0px 10px 0px;
+}*/
+
+/*hiyoko_gaikan
+-------------------------------------*/
 
 #sidebar-1 [id*="google"] .widget-title{
  background: -webkit-gradient(linear, 0% 100%, 0% 0%, from(#FFC6B4), to(#FFF0EE));
@@ -124,58 +174,66 @@ margin-left: 10px;
 float: right;
 }
 
-#alerttitle {
-  background: #ff2000;
-  color: white;
-  float: left;
-  -webkit-transform: scale(1.5);
-  margin-left: 55px;
-}
-#alertdes {
-  background: #ff2000;
-  color: white;
-  float: left;
-  -webkit-transform: scale(1.5);
-  margin-left: 55px;
-}
-#alertkey {
-  background: #ff2000;
-  color: white;
-  float: left;
-  -webkit-transform: scale(1.5);
-  margin-left: 55px;
-}
-
 #alertgoogle {
   background: #ff2000;
   color: white;
-  -webkit-transform: scale(1.5);
-  margin-left: 24px;
-  margin-right: 108px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 15px;
 
 }
 #alertamazon {
   background: #ff2000;
   color: white;
-  -webkit-transform: scale(1.5);
-  margin-left: 24px;
-  margin-right: 108px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 15px;
 }
 #alerttw {
   background: #ff2000;
   color: white;
-  -webkit-transform: scale(1.5);
-  margin-left: 24px;
-  margin-right: 108px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 15px;
+  margin-bottom: 10px;
 }
 #alertfb {
   background: #ff2000;
   color: white;
-  -webkit-transform: scale(1.5);
-  margin-left: 24px;
-  margin-right: 108px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 15px;
+  margin-bottom: 10px;
 }
 #alertcount {
   float: right;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background-color: #ff2000;
+  color: #fff;
+  -webkit-box-shadow: rgba(255,255,255,0.5) 0 1px 0;
+  box-shadow: rgba(255,255,255,0.5) 0 1px 0;
+  padding: 0 6px;
+}
 
+#adminmenu .wp-menu-name .update-posts {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background-color: #ff2000;
+  color: #fff;
+  padding: 0 5px;
+  padding-top: 4px;
+  padding-bottom: 2px;
+  font-size: 9px;
+}
+  
+#adminmenu .wp-submenu .wp-first-item .update-posts {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background-color: #ff2000;
+  color: #fff;
+  padding: 0 5px;
+  padding-top: 4px;
+  padding-bottom: 2px;
+  font-size: 9px;
 }
