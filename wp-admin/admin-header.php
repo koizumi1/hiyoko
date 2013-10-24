@@ -1,3 +1,8 @@
+
+
+
+
+
 <?php
 
 
@@ -136,11 +141,9 @@ do_action('in_admin_header');
 ?>
 
 <div id="wpbody">
-<?php
+<?php　
 unset($title_class, $blog_name, $total_update_count, $update_title);
-
 $current_screen->set_parentage( $parent_file );
-
 ?>
 
 <div id="wpbody-content" aria-label="<?php esc_attr_e('Main content'); ?>" tabindex="0">

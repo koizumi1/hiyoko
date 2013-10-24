@@ -108,6 +108,31 @@
 width: 60%;
 }
 
+#alerttitle1 {
+  background: #ff2000;
+  color: white;
+  width: 120px;
+  font-size: 15px;
+  padding: 5px 30px 5px 30px;
+}
+
+#alertthumb {
+  background: #ff2000;
+  color: white;
+  float: left;
+  font-size: 15px;
+  padding: 5px 30px 5px 30px;
+}
+
+#alertcontent {
+  background: #ff2000;
+  color: white;
+  float: left;
+  margin-bottom: 55px;
+  font-size: 15px;
+  padding: 5px 30px 5px 30px;
+}
+
 #alerttitle {
   background: #ff2000;
   color: white;

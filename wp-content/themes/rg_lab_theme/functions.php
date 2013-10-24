@@ -767,7 +767,7 @@ amazon_ad_tag = "r0488-22"; amazon_ad_width = "160"; amazon_ad_height = "600"; a
  
 /*Post ID global*/
  
-        function nskw_meta_box_inside() {
+/*        function nskw_meta_box_inside() {
                 $post = null;
                 $post_type = "post";
                 $title = "title";
@@ -821,7 +821,7 @@ global $post_type;
                 add_action('admin_menu', 'nskw_meta_box_output' );
       
     	
-		
+*/		
 
 // CSS
 function hoge_css() {
@@ -844,10 +844,10 @@ function custom_menu_order($menu_ord) {
         'edit.php?post_type=page', // 固定ページ
         'edit-comments.php', // コメント
         'separator2', // 仕切り
- /*       'themes.php', // 外観*/
         'plugins.php', // プラグイン
         'users.php', // ユーザー
         'tools.php', // ツール
+        'theme.php',
         'separator-last', // 仕切り
     );
 
@@ -855,9 +855,15 @@ function custom_menu_order($menu_ord) {
 add_filter('custom_menu_order', 'custom_menu_order');
 add_filter('menu_order', 'custom_menu_order');
 
+/*function remove_menus() {
+ 
+    remove_menu_page('themes.php'); // 外観
 
+}
 
+add_action('admin_menu', 'remove_menus');
 
+*/
 
 
 

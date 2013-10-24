@@ -13,7 +13,7 @@
  * @package WordPress
  * @subpackage Administration
  */
-class Custom_Background {
+class Custom_Background {//なかはた
 
 	/**
 	 * Callback for administration header.

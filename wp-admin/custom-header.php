@@ -1,4 +1,13 @@
 <?php
+
+
+ echo('aaaaaaaaaaaaaaa'); 
+
+
+
+
+
+
 /**
  * The custom header image script.
  *
@@ -1021,5 +1030,6 @@ wp_nonce_field( 'custom-header-options', '_wpnonce-custom-header-options' ); ?>
 		set_theme_mod( 'header_image_data', (object) $default_data );
 	}
 }
-?>
+
+
 

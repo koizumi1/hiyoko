@@ -158,7 +158,6 @@ function alert_content() {
 window.onload = alert_content();
 
 
-
 function alert_seo(){
   var textarea = document.getElementsByClassName("aioseop_textarea_type")
   if(textarea){
@@ -268,81 +267,35 @@ function alert_seo(){
 }
 window.onload = alert_seo();
 
-jQuery(function alert_category() {
-    category = $("#categorychecklist input")
-    alcategory = $("#alertcategory")
-    if(category){  	 
-        for(i=0;i<category.length;i++){   // チェックボックスの数分ループ
-            if(category[i].checked){
-		        return;
-      		}
-        }
-          if(!alcategory){
-          	var ele = document.createElement("div");
-      		ele.id = "alertcategory";
-			var str = document.createTextNode("入力してください");
-			ele.appendChild(str);	
-      		$("#categorychecklist input").appendChild(ele);
-          }
-      }else{                                                 
-        if(alcategory ){
-          alcategory.parentNode.removeChild(alcategory);
-        }
-    } 
-  alert_count();
-});
+/*nakahata*/
 
+function alert_category() {
+	var	category = document.post.elements['post_category[]'];
+	var alcategory = document.getElementById("alertcategory");
+  		if(category){
+          	if(category.length>0){
+				for (var i=0;i<category.length;i++){
+                  	if (category[i].checked){
+                      if(alcategory){
+                   			alcategory.parentNode.removeChild(alcategory);
+                      	
+                      }
+                      return;
+                    }
+                }
+            }
+          		if(!alcategory){
+					var ele = document.createElement("div");
+                  	ele.id = "alcategory";
+                  	var str = document.createTextNode("入力してください");
+                  	ele.appendChild(str);	
+                  	document.getElementById("categorydiv").appendChild(ele);
+                }
+          
+		}
+	alert_count();
+}
 window.onload = alert_category();
-
-jQuery(function alert_post_title() {
-    var title = $("#titlediv input")
-  	var alposttitle = document.getElementById("alertposttitle");
-    if(title){  	 
-      if(title[1].value.replace(/\s+/g, "").length <=0){
-          if(!alposttitle){
-          	var ele = document.createElement("div");
-      		ele.id = "alertposttitle";
-			var str = document.createTextNode("入力してください");
-			ele.appendChild(str);	
-      		document.getElementsByClassName("post_title_hoge")[1].appendChild(ele);
-          }
-      }else{
-        if(alposttitle){
-          alposttitle.parentNode.removeChild(alposttitle);
-        }
-      }
-    }
-  alert_count();
-});
-window.onload = alert_post_title();
-
-jQuery(function alert_ifr() {
-    var ifr = $("#content_ifr p")
-  	var alifr = document.getElementById("alertifr");
-    if(ifr){  	 
-      if(ifr[1].value.replace(/\s+/g, "").length <=0){
-          if(!alifr){
-          	var ele = document.createElement("p");
-      		ele.id = "alifr";
-			var str = document.createTextNode("入力してください");
-			ele.appendChild(str);	
-      		document.getElementsByClassName("ifr_hoge")[1].appendChild(ele);
-          }
-      }else{
-        if(alifr){
-          alifr.parentNode.removeChild(alifr);
-        }
-      }
-    }
-  alert_count();
-});
-window.onload = alert_ifr();
-
-
-
-
-
-
 
 function alert_count() {
   var count = 0;
@@ -373,16 +326,16 @@ function alert_count() {
   if(document.getElementById("alertcategory")){
     count ++;
   }
-  if(document.getElementById("alertposttitle")){
-    count ++;
-  }
-  if(document.getElementById("alifr")){
+
+  if(document.getElementById("alertthumb")){
     count ++;
   }
   if(document.getElementById("alertcontent")){
     count ++;
   }
-  
+   if(document.getElementById("alertcategory")){
+    count ++;
+ } 
   var alcount = document.getElementById("alertcount");
   if(alcount){
      alcount.parentNode.removeChild(alcount);

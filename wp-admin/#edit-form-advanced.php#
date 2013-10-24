@@ -334,7 +334,7 @@ if ( isset( $post_new_file ) && current_user_can( $post_type_object->cap->create
 <div id="titlewrap">
   <div class="handlediv" title="クリックで切替"><br /></div><h3 class='hndle'><span>タイトル</span></h3>
 	<label class="screen-reader-text" id="title-prompt-text" for="title"><?php echo apply_filters( 'enter_title_here', __( 'Enter title here' ), $post ); ?></label>
-	<input type="text" name="post_title" onblur="alert_title()" onload="alert_title()"value="<?php echo esc_attr( htmlspecialchars( $post->post_title ) ); ?>" id="title" autocomplete="off" />
+	<input type="text" name="post_title" onblur="alert_title()" value="<?php echo esc_attr( htmlspecialchars( $post->post_title ) ); ?>" id="title" autocomplete="off" />
 </div>
     
    

@@ -45,9 +45,9 @@ if ($_REQUEST['blogdescription']) update_option('blogdescription', $_REQUEST['bl
 
 </div> 
 
-<div></div>
-<?php 
 
+
+<?php 
 
 /**
  * Widgets administration panel.
@@ -415,7 +415,7 @@ foreach ( $wp_registered_sidebars as $sidebar => $registered_sidebar ) {
 </div>
 
 <div class="widget-liquid-right">
-<div id="widgets-right">
+<div id="widgets-right"> 
 <?php
 $i = 0;
 foreach ( $wp_registered_sidebars as $sidebar => $registered_sidebar ) {
@@ -447,7 +447,9 @@ foreach ( $wp_registered_sidebars as $sidebar => $registered_sidebar ) {
 <br class="clear" />
 </div>
 
-<?php
+  
+  
+<?php 
 do_action( 'sidebar_admin_page' );
 ?>
 <script type="text/javascript">
@@ -460,3 +462,5 @@ function change_space(){
 window.onload = change_space();
 </script>
 <script src="<?php bloginfo('template_url'); ?>/js/alert.js" type="text/javascript"></script>
+  
+  
